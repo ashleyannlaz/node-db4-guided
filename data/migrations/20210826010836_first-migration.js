@@ -21,13 +21,12 @@ exports.up = function(knex) {
             .onDelete("CASCADE") //referenctial integrity
     })
     .createTable("zoo_animals",tbl=>{
-        tbl.increments("animal_id")
-        tbl.string("animal_name",128).notNullable()
-        tbl.integer("species_id")
+        tbl.increments("zoo_animals_id")
+        tbl.integer("zoo_id")
             .unsigned()
             .notNullable()
-            .references("species_id")
-            .inTable("species")
+            .references("zoo_id")
+            .inTable("zoos")
             .onDelete("CASCADE") //referenctial integrity
     })
 };
