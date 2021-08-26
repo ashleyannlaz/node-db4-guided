@@ -6,7 +6,10 @@ exports.up = function(knex) {
         tbl.string("zoo_name",128).notNullable()
         tbl.string("address",128).notNullable().unique()
     })
-    .createTable()
+    .createTable("species",tbl=>{
+        tbl.increments("species_id")
+        tbl.string("spcies_name",128).notNullable().unique()
+    })
     .createTable()
     .createTable()
 };
