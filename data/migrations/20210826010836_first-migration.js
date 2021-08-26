@@ -18,6 +18,6 @@ exports.down = function(knex) {
     return knex.schema
     .dropTableIfExists()
     .dropTableIfExists()
-    .dropTableIfExists()
+    .dropTableIfExists("species")
     .dropTableIfExists("zoos")
 };
