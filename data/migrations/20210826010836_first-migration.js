@@ -27,7 +27,13 @@ exports.up = function(knex) {
             .notNullable()
             .references("zoo_id")
             .inTable("zoos")
-            .onDelete("CASCADE") //referenctial integrity
+            .onDelete("CASCADE")
+        tbl.integer("animal_id")
+            .unsigned()
+            .notNullable()
+            .references("animal_id")
+            .inTable("animals")
+            .onDelete("CASCADE")  
     })
 };
 
