@@ -20,7 +20,16 @@ exports.up = function(knex) {
             .inTable("species")
             .onDelete("CASCADE") //referenctial integrity
     })
-    .createTable()
+    .createTable("zoo_animals",tbl=>{
+        tbl.increments("animal_id")
+        tbl.string("animal_name",128).notNullable()
+        tbl.integer("species_id")
+            .unsigned()
+            .notNullable()
+            .references("species_id")
+            .inTable("species")
+            .onDelete("CASCADE") //referenctial integrity
+    })
 };
 
 exports.down = function(knex) {
